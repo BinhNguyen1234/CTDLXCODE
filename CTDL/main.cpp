@@ -54,7 +54,18 @@ struct LinkedList {
         }
         
     }
-    void 
+    void deleteANode(Node* node){
+        Node* temp = headNode;
+        while(temp != nullptr){
+            if(temp->next == node){
+                temp->next = node->next;
+                delete node;
+                break;
+            }else{
+                temp = temp->next;
+            }
+        }
+    }
     Node* getFinalNode(){
             Node* temp = headNode;
             while(temp->next!= nullptr){
