@@ -54,6 +54,18 @@ struct LinkedList {
         }
         
     }
+    void reverse(){
+        Node* currentNode = headNode;
+        Node* preNode= nullptr;
+        Node* nextNode;
+        while(currentNode != nullptr){
+            nextNode = currentNode->next;
+            currentNode->next = preNode;
+            preNode = currentNode;
+            currentNode = nextNode;
+        }
+        headNode = preNode;
+    }
     void deleteANode(Node* node){
         Node* temp = headNode;
         while(temp != nullptr){
@@ -83,8 +95,6 @@ int main(int argc, const char * argv[]) {
     testList->addValueToHead(2);
     testList->addValueToTail(6);
     testList->addValueToHead(1);
-    Node* result = testList->searchValue(7);
-
     
 //    int vl  = 4;
 //    int* ptr = &vl;
